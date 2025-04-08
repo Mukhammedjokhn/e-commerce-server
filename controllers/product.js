@@ -1,5 +1,4 @@
 const { Products, validationProduct } = require("../models/productScheme");
-const { auth } = require("../middleware/auth");
 
 const getProducts = async (req, res) => {
     try {
@@ -7,7 +6,7 @@ const getProducts = async (req, res) => {
 
         let filter = {};
 
-        if (type) {
+        if (type && type !== "all") {
             filter.type = type;
         }
 
